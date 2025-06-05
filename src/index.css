@@ -1,0 +1,17 @@
+@import "tailwindcss";
+
+.font {
+    font-family: "DM Sans", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: auto;
+    font-style: normal;
+}
+
+::selection {
+    background-color: #218448;
+    color: #fff;
+}
+
+html {
+    scroll-behavior: smooth;
+}
