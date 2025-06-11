@@ -68,7 +68,7 @@ const Navbar = () => {
                             setopenIndustries(!openIndustries);
                         }
                     }
-                        className={`flex justify-center items-center gap-1 cursor-pointer h-fit border-b-2 ${pathname.startsWith("/industries") ? "border-[#218448]" : "border-transparent"}`}>
+                        className={`flex justify-center items-center gap-1 cursor-pointer h-fit border-b-2 hover:scale-105 ${pathname.startsWith("/industries") ? "border-[#218448]" : "border-transparent"}`}>
                         Industries
                         <img width={"10px"} src={openIndustries ? UpArrow : DownArrow} alt="" />
                     </div>
@@ -78,7 +78,7 @@ const Navbar = () => {
                         customTrack("Navbar Resources button Clicked", { buttonName: "Resources" })
                         navigate("/resources")
                     }}
-                        className={`flex justify-center items-center gap-1 cursor-pointer h-fit border-b-2 ${pathname.includes("/resources") ? "border-[#218448]" : "border-transparent"}`}>
+                        className={`flex justify-center items-center gap-1 cursor-pointer h-fit border-b-2 hover:scale-105 ${pathname.includes("/resources") ? "border-[#218448]" : "border-transparent"}`}>
                         Resources
                     </div>
 
@@ -86,7 +86,7 @@ const Navbar = () => {
                         customTrack("Navbar Why We button Clicked", { buttonName: "Why We" })
                         navigate("/why-we")
                     }}
-                        className={`flex justify-center items-center gap-1 cursor-pointer h-fit border-b-2 ${pathname.includes("/why-we") ? "border-[#218448]" : "border-transparent"}`}>
+                        className={`flex justify-center items-center gap-1 cursor-pointer h-fit border-b-2 hover:scale-105 ${pathname.includes("/why-we") ? "border-[#218448]" : "border-transparent"}`}>
                         Why we
                     </div>
 
@@ -101,7 +101,7 @@ const Navbar = () => {
                         customTrack("Navbar About Us button Clicked", { buttonName: "About Us" })
                         navigate("/about-us")
                     }}
-                        className={`flex justify-center items-center gap-1 cursor-pointer h-fit border-b-2 ${pathname.includes("/about-us") ? "border-[#218448]" : "border-transparent"}`}>
+                        className={`flex justify-center items-center gap-1 cursor-pointer h-fit border-b-2 hover:scale-105 ${pathname.includes("/about-us") ? "border-[#218448]" : "border-transparent"}`}>
                         About Us
                     </div>
 
