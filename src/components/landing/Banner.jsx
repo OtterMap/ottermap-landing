@@ -22,7 +22,7 @@ const Banner = () => {
                                 customTrack("Bottom banner cta Clicked", { buttonName: "Try for Free" })
                                 window.open("https://app.ottermap.com/signup")
                             }}
-                            className="bg-[#218448] cursor-pointer rounded-full max-sm:text-[10px] text-sm text-white px-7 py-3 max-sm:py-1 max-sm:px-4 flex items-center gap-2 mt-4 text-nowrap">
+                            className="bg-[#218448] cursor-pointer rounded-full max-sm:text-[10px] text-sm text-white px-7 py-3 max-sm:py-1 max-sm:px-4 flex items-center gap-2 mt-4 text-nowrap hover:shadow-2xl hover:scale-105 hover:transform hover:transition-all hover:duration-200 hover:ease-in-out">
                             Try for Free <img src={RightArrow} alt="right arrow" />
                         </button>
                         <button
@@ -30,7 +30,7 @@ const Banner = () => {
                                 customTrack("Bottom banner cta Clicked", { buttonName: "Book a Demo" })
                                 window.open("https://calendly.com/amit-ottermap/30min")
                             }}
-                            className="border-2 cursor-pointer border-[#218448] rounded-full max-sm:text-[10px] text-sm text-white px-7 py-3 max-sm:py-1.5 max-sm:px-4 flex items-center gap-2 mt-4 text-nowrap">
+                            className="border-2 cursor-pointer border-[#ffffff] rounded-full max-sm:text-[10px] text-sm text-white px-7 py-3 max-sm:py-1.5 max-sm:px-4 flex items-center gap-2 mt-4 text-nowrap hover:shadow-2xl hover:scale-105 hover:transform hover:transition-all hover:duration-200 hover:ease-in-out">
                             Book a Demo
                         </button>
                     </div>

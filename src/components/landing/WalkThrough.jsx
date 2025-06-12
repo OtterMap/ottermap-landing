@@ -18,7 +18,7 @@ const WalkThrough = () => {
                         customTrack("Landing Walkthrough Button Clicked", { buttonName: "Try for Free" })
                         window.open("https://app.ottermap.com/signup")
                     }}
-                    className="bg-[#218448] cursor-pointer text-sm rounded-full text-white px-4 py-3 max-sm:py-2 flex justify-center items-center gap-2">
+                    className="bg-[#218448] cursor-pointer text-sm rounded-full text-white px-4 py-3 max-sm:py-2 flex justify-center items-center gap-2 hover:shadow-2xl hover:scale-105 hover:transform hover:transition-all hover:duration-200 hover:ease-in-out">
                     Try for Free
                     <img src={RightArrow} alt="right arrow" />
                 </button>
@@ -27,7 +27,7 @@ const WalkThrough = () => {
                         customTrack("Landing Problem-Solution Button Clicked", { buttonName: "Book a demo" })
                         window.open("https://calendly.com/amit-ottermap/30min")
                     }}
-                    className="border-[#218448] border-2 cursor-pointer text-sm rounded-full text-black px-4 py-3 max-sm:py-2 flex justify-center items-center gap-1">Book a demo
+                    className="border-[#218448] border-2 cursor-pointer text-sm rounded-full text-black px-4 py-3 max-sm:py-2 flex justify-center items-center gap-1 hover:shadow-2xl hover:scale-105 hover:transform hover:transition-all hover:duration-200 hover:ease-in-out">Book a demo
                 </button>
             </div>
             <div className="pt-10 sm:pt-16 sm:pb-24 pb-24 w-full flex justify-center">

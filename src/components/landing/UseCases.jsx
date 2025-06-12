@@ -54,7 +54,7 @@ const UseCases = () => {
                             <button onClick={() => {
                                 customTrack("Landing Needs Button Clicked", { buttonName: "Learn more", industry: caseItem.title })
                                 navigate(caseItem.link)
-                            }} className="w-fit bg-[#218448] cursor-pointer rounded-full text-sm max-sm:text-xs text-white px-5 max-sm:px-4 py-3 max-sm:py-2.5 flex items-center gap-1">
+                            }} className="w-fit bg-[#218448] cursor-pointer rounded-full text-sm max-sm:text-xs text-white px-5 max-sm:px-4 py-3 max-sm:py-2.5 flex items-center gap-1 hover:shadow-2xl hover:scale-105 hover:transform hover:transition-all hover:duration-200 hover:ease-in-out">
                                 Learn more
                             </button>
                         </div>

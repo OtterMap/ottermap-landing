@@ -46,7 +46,7 @@ const Advantages = () => {
                             customTrack("Why we advantages Button Clicked", { buttonName: 'Try for free' })
                             window.open("https://app.ottermap.com/signup")
                         }}
-                        className="text-white cursor-pointer bg-[#218448] border-2 rounded-full px-7 py-3 flex items-center justify-center gap-2 text-nowrap">
+                        className="text-white cursor-pointer bg-[#218448] border-2 rounded-full px-7 py-3 flex items-center justify-center gap-2 text-nowrap hover:shadow-2xl hover:scale-105 hover:transform hover:transition-all hover:duration-200 hover:ease-in-out">
                         Try for free
                         <img src={RightArrow} alt="" />
                     </button>
@@ -55,7 +55,7 @@ const Advantages = () => {
                             customTrack("Why we advantages Button Clicked", { buttonName: 'Book a demo' })
                             window.open("https://calendly.com/amit-ottermap/30min")
                         }}
-                        className="text-black cursor-pointer border-2 border-[#218448] rounded-full px-7 py-3 text-nowrap">
+                        className="text-black cursor-pointer border-2 border-[#218448] rounded-full px-7 py-3 text-nowrap hover:shadow-2xl hover:scale-105 hover:transform hover:transition-all hover:duration-200 hover:ease-in-out">
                         Book a demo
                     </button>
                 </div>

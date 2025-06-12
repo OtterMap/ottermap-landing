@@ -61,7 +61,7 @@ const Values = () => {
                             customTrack("Landing Values Button Clicked", { buttonName: "Try for Free" })
                             window.open("https://app.ottermap.com/signup")
                         }}
-                        className="bg-[#218448] cursor-pointer rounded-full text-white px-4 py-3 flex justify-center items-center gap-2">
+                        className="bg-[#218448] cursor-pointer rounded-full text-white px-4 py-3 flex justify-center items-center gap-2 hover:shadow-2xl hover:scale-105 hover:transform hover:transition-all hover:duration-200 hover:ease-in-out">
                         Try for Free
                         <img src={RightArrow} alt="right arrow" />
                     </button>
@@ -70,7 +70,7 @@ const Values = () => {
                             customTrack("Landing Values Button Clicked", { buttonName: "Book a demo" })
                             window.open("https://calendly.com/amit-ottermap/30min")
                         }}
-                        className="border-[#218448] border-2 cursor-pointer rounded-full text-black px-4 py-3 flex justify-center items-center gap-1">Book a demo
+                        className="border-[#218448] border-2 cursor-pointer rounded-full text-black px-4 py-3 flex justify-center items-center gap-1 hover:shadow-2xl hover:scale-105 hover:transform hover:transition-all hover:duration-200 hover:ease-in-out">Book a demo
                     </button>
                 </div>
             </div>

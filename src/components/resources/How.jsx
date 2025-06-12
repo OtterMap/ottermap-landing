@@ -33,7 +33,7 @@ const How = () => {
                                 onClick={() => {
                                     customTrack("Resources How section Button Clicked", { buttonName: "Read case study" })
                                 }}
-                                className='bg-[#218448] text-sm max-sm:text-[10px] text-white rounded-full py-2.5 px-3 w-fit mt-6'>Read case study</button>
+                                className='bg-[#218448] text-sm max-sm:text-[10px] text-white rounded-full py-2.5 px-3 w-fit mt-6 hover:shadow-2xl hover:scale-105 hover:transform hover:transition-all hover:duration-200 hover:ease-in-out'>Read case study</button>
                         </div>
                     </div>
                 ))}

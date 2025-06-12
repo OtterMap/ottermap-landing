@@ -16,21 +16,23 @@ const HeroSection = ({ heroImage, title, subtitle, buttonText1, buttonText2 }) =
                         <button
                             onClick={() => {
                                 customTrack("Industries Hero Button Clicked", { buttonName: buttonText1, location: location.pathname })
+                                window.open("https://app.ottermap.com/signup")
                             }}
-                            className="bg-white text-black border-2 border-white rounded-full px-6 py-3">
+                            className="bg-white cursor-pointer text-black border-2 border-white rounded-full px-6 py-3 hover:shadow-2xl hover:scale-105 hover:transform hover:transition-all hover:duration-200 hover:ease-in-out">
                             {buttonText1}
                         </button>
                         <button
                             onClick={() => {
                                 customTrack("Industries Hero Button Clicked", { buttonName: buttonText1, location: location.pathname })
+                                window.open("https://calendly.com/amit-ottermap/30min")
                             }}
-                            className="text-white border-2 border-white rounded-full px-6 py-3">
+                            className="text-white cursor-pointer border-2 border-white rounded-full px-6 py-3 hover:shadow-2xl hover:scale-105 hover:transform hover:transition-all hover:duration-200 hover:ease-in-out">
                             {buttonText2}
                         </button>
                     </div>
                 </div>
 
-                <div className="xl:w-[47%] max-sm:px-4  flex justify-center">
+                <div className="xl:w-[50%] max-sm:px-4  flex justify-center">
                     <img src={heroImage} alt="Hero" className=" w-full" loading='lazy' />
                 </div>
             </div>

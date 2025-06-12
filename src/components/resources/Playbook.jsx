@@ -54,7 +54,7 @@ const Playbook = () => {
                             <button onClick={() => {
                                 customTrack("Resources Learn section Button Clicked", { buttonName: "Read" })
                                 navigate(caseItem.link)
-                            }} className="w-fit bg-[#218448] cursor-pointer rounded-full text-sm text-white px-9 py-1.5 flex items-center gap-1">
+                            }} className="w-fit bg-[#218448] cursor-pointer rounded-full text-sm text-white px-9 py-1.5 flex items-center gap-1 hover:shadow-2xl hover:scale-105 hover:transform hover:transition-all hover:duration-200 hover:ease-in-out">
                                 Read
                             </button>
                         </div>
@@ -63,7 +63,7 @@ const Playbook = () => {
             </div>
 
             {/* <div className='pt-14 pb-4 flex justify-center'>
-                <button className="w-fit bg-[#218448] cursor-pointer rounded-full text-sm text-white px-5 py-3 flex items-center gap-2">
+                <button className="w-fit bg-[#218448] cursor-pointer rounded-full text-sm text-white px-5 py-3 flex items-center gap-2 hover:shadow-2xl hover:scale-105 hover:transform hover:transition-all hover:duration-200 hover:ease-in-out">
                     Read more Use cases
                     <img src={RightArrow} alt="right arrow" />
                 </button>

@@ -162,11 +162,11 @@ const Navbar = () => {
                     <button onClick={() => {
                         customTrack("Navbar Sign In Click", { buttonName: "Sign In" })
                         window.open("https://app.ottermap.com/signup")
-                    }} className='w-fit h-12 text-sm border-2 font-semibold rounded-full border-[#218448] bg-white text-black px-6 py-1 cursor-pointer text-nowrap'>Sign In</button>
+                    }} className='w-fit h-12 text-sm border-2 font-semibold rounded-full border-[#218448] bg-white text-black px-6 py-1 cursor-pointer text-nowrap hover:shadow-2xl hover:scale-105 hover:transform hover:transition-all hover:duration-200 hover:ease-in-out'>Sign In</button>
                     <button onClick={() => {
                         customTrack("Navbar CTA Click", { buttonName: "Try for free" })
                         window.open("https://app.ottermap.com/signup")
-                    }} className='w-fit h-12 text-sm border-2 font-semibold rounded-full border-[#218448] bg-[#218448] text-white px-4 py-1 flex justify-center items-center gap-1 cursor-pointer text-nowrap'>Try for free
+                    }} className='w-fit h-12 text-sm border-2 font-semibold rounded-full border-[#218448] bg-[#218448] text-white px-4 py-1 flex justify-center items-center gap-1 cursor-pointer text-nowrap hover:shadow-2xl hover:scale-105 hover:transform hover:transition-all hover:duration-200 hover:ease-in-out'>Try for free
                         <img src={RightArrow} alt="right arrow" />
                     </button>
                 </div>

@@ -15,7 +15,7 @@ const ContactSupport = () => {
                     customTrack("Resources Contact Support Button Clicked", { buttonName: "info@ottermap.com" })
                     window.open("mailto:info@ottermap.com")
                 }}
-                className='text-xl max-sm:text-base font-bold underline text-[#0D80F2]'>
+                className='text-xl max-sm:text-base font-bold underline text-[#0D80F2] cursor-pointer'>
                 info@ottermap.com
             </div>
         </div>

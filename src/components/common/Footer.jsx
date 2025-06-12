@@ -51,19 +51,19 @@ const Footer = () => {
                 },
             ]
         },
-        {
-            title: "Resources",
-            links: [
-                {
-                    name: "Blog",
-                    link: "/resources"
-                },
-                {
-                    name: "Case Studies",
-                    link: "/resources"
-                },
-            ]
-        },
+        // {
+        //     title: "Resources",
+        //     links: [
+        //         {
+        //             name: "Blog",
+        //             link: "/resources"
+        //         },
+        //         {
+        //             name: "Case Studies",
+        //             link: "/resources"
+        //         },
+        //     ]
+        // },
         {
             title: "Company",
             links: [
@@ -146,7 +146,7 @@ const Footer = () => {
                         <button onClick={() => {
                             customTrack("Footer CTA Click", { buttonName: "Try for free" })
                             window.open("https://app.ottermap.com/signup")
-                        }} className='w-fit h-12 text-sm border-2 font-semibold rounded-full border-[#218448] bg-[#218448] text-white px-4 py-1 max-sm:py-0 flex justify-center items-center gap-1 cursor-pointer text-nowrap'>Try for free
+                        }} className='w-fit h-12 text-sm border-2 font-semibold rounded-full border-[#218448] bg-[#218448] text-white px-4 py-1 max-sm:py-0 flex justify-center items-center gap-1 cursor-pointer text-nowrap hover:shadow-2xl hover:scale-105 hover:transform hover:transition-all hover:duration-200 hover:ease-in-out'>Try for free
                             <img src={RightArrow} alt="right arrow" />
                         </button>
                     </div>

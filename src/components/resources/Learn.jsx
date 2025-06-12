@@ -41,7 +41,7 @@ const Learn = () => {
                         onClick={() => {
                             customTrack("Resources Learn section Button Clicked", { buttonName: "Learn more on this" })
                         }}
-                        className="mt-6 bg-[#218448] text-sm max-sm:text-[10px] font-medium px-4 py-2.5 w-fit text-white rounded-full cursor-pointer">
+                        className="mt-6 bg-[#218448] text-sm max-sm:text-[10px] font-medium px-4 py-2.5 w-fit text-white rounded-full cursor-pointer hover:shadow-2xl hover:scale-105 hover:transform hover:transition-all hover:duration-200 hover:ease-in-out">
                         Learn more
                     </button>
                 </div>

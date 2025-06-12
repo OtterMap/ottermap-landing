@@ -190,7 +190,7 @@ const Features = () => {
                                                 customTrack("Landing Features Button Clicked", { buttonName: "Try for Free", featureName: feature.heading })
                                                 window.open("https://app.ottermap.com/signup")
                                             }}
-                                            className="bg-[#218448] cursor-pointer rounded-full text-white px-5 py-3 max-sm:py-2 text-sm flex items-center gap-2 mt-4">
+                                            className="bg-[#218448] cursor-pointer rounded-full text-white px-5 py-3 max-sm:py-2 text-sm flex items-center gap-2 mt-4 hover:shadow-2xl hover:scale-105 hover:transform hover:transition-all hover:duration-200 hover:ease-in-out">
                                             Try for Free <img src={RightArrow} alt="right arrow" />
                                         </button>
                                         <button
@@ -198,7 +198,7 @@ const Features = () => {
                                                 customTrack("Landing Features Button Clicked", { buttonName: "Book a Demo" })
                                                 window.open("https://calendly.com/amit-ottermap/30min")
                                             }}
-                                            className="border-2 cursor-pointer border-[#218448] rounded-full text-black px-5 py-3 max-sm:py-2 text-sm flex items-center gap-2 mt-4">
+                                            className="border-2 cursor-pointer border-[#218448] rounded-full text-black px-5 py-3 max-sm:py-2 text-sm flex items-center gap-2 mt-4 hover:shadow-2xl hover:scale-105 hover:transform hover:transition-all hover:duration-200 hover:ease-in-out">
                                             Book a Demo
                                         </button>
                                     </div>

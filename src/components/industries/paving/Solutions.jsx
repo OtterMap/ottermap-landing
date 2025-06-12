@@ -21,7 +21,7 @@ const Solutions = () => {
                             customTrack("Paving solutions Button Clicked", { buttonName: 'Try for free' })
                             window.open("https://app.ottermap.com/signup")
                         }}
-                        className="text-white cursor-pointer bg-[#218448] border-2 rounded-full px-6 py-3 max-sm:py-2 max-sm:px-4 flex items-center justify-center gap-2">
+                        className="text-white cursor-pointer bg-[#218448] border-2 rounded-full px-6 py-3 max-sm:py-2 max-sm:px-4 flex items-center justify-center gap-2 hover:shadow-2xl hover:scale-105 hover:transform hover:transition-all hover:duration-200 hover:ease-in-out">
                         Try for free
                         <img src={RightArrow} alt="" />
                     </button>
@@ -29,7 +29,7 @@ const Solutions = () => {
                         onClick={() => {
                             customTrack("Paving solutions Button Clicked", { buttonName: 'Book a demo' })
                             window.open("https://calendly.com/amit-ottermap/30min")
-                        }} className="text-black cursor-pointer border-2 border-[#218448] rounded-full px-7 py-3 max-sm:py-2 max-sm:px-4">
+                        }} className="text-black cursor-pointer border-2 border-[#218448] rounded-full px-7 py-3 max-sm:py-2 max-sm:px-4 hover:shadow-2xl hover:scale-105 hover:transform hover:transition-all hover:duration-200 hover:ease-in-out">
 
                         Book a demo
                     </button>
