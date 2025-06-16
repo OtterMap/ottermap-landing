@@ -11,11 +11,22 @@ import FAQs from '../../components/landing/FAQs'
 import Footer from '../../components/common/Footer'
 import ProblemAndSolution from '../../components/landing/ProblemAndSolution'
 import BookMeeting from '../../components/landing/BookMeeting'
+import axios from 'axios'
+import { statecontext } from '../../utils/context/context'
 
 const Landing = () => {
+    const { blogs, setblogs, fetchBlogs } = statecontext();
+
+   
+    useEffect(() => {
+        fetchBlogs();
+    }, []);
+
+
     useEffect(() => {
         window.scrollTo(0, 0);
     })
+
     return (
         <div>
             <Navbar />

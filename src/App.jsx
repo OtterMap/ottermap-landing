@@ -9,7 +9,7 @@ import WhyWe from "./pages/whywe/WhyWe";
 import { useEffect } from "react";
 import mixpanel from './utils/mixpanel/mixpanel.js';
 import Resources from "./pages/resources/Resources.jsx";
-
+import Blog from "./components/blog/Blog.jsx";
 function App() {
 
   useEffect(() => {
@@ -64,6 +64,12 @@ function App() {
         <Route path="/resources" element={
           <div className="font">
             <Resources />
+          </div>
+        }
+        />
+        <Route path="/blog/:id" element={
+          <div className="font">
+            <Blog />
           </div>
         }
         />
