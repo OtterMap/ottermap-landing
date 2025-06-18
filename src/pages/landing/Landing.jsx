@@ -11,16 +11,16 @@ import FAQs from '../../components/landing/FAQs'
 import Footer from '../../components/common/Footer'
 import ProblemAndSolution from '../../components/landing/ProblemAndSolution'
 import BookMeeting from '../../components/landing/BookMeeting'
-import axios from 'axios'
-import { statecontext } from '../../utils/context/context'
+// import axios from 'axios'
+// import { statecontext } from '../../utils/context/context'
 
 const Landing = () => {
-    const { blogs, setblogs, fetchBlogs } = statecontext();
+    // const { blogs, setblogs, fetchBlogs } = statecontext();
 
    
-    useEffect(() => {
-        fetchBlogs();
-    }, []);
+    // useEffect(() => {
+    //     fetchBlogs();
+    // }, []);
 
 
     useEffect(() => {
