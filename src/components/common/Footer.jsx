@@ -18,7 +18,7 @@ const Footer = () => {
                 },
                 {
                     name: "Success Metrics",
-                    link: "/why-we"
+                    link: "/whyus"
                 },
                 {
                     name: "Walkthrough Video",
@@ -69,11 +69,11 @@ const Footer = () => {
             links: [
                 {
                     name: "Why we",
-                    link: "/why-we"
+                    link: "/whyus"
                 },
                 {
                     name: "About us",
-                    link: "/about-us"
+                    link: "/about"
                 },
                 {
                     name: "Newsletter",

@@ -50,13 +50,13 @@ function App() {
           </div>
         }
         />
-        <Route path="/about-us" element={
+        <Route path="/about" element={
           <div className="font">
             <AboutUs />
           </div>
         }
         />
-        <Route path="/why-we" element={
+        <Route path="/whyus" element={
           <div className="font">
             <WhyWe />
           </div>
