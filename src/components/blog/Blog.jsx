@@ -12,6 +12,7 @@ const Blog = () => {
   const navigate = useNavigate();
   const { slug, id } = useParams();
   const [filteredBlog, setFilteredBlog] = useState([]);
+  const [nextBlog, setNextBlog] = useState(null);
 
   useEffect(() => {
     if (!blogs || blogs.length === 0) {
@@ -24,10 +25,14 @@ const Blog = () => {
     if (blogs && blogs.length > 0) {
       const foundBlog = blogs.filter(blog => blog.id.toString() === id); // ensure both are strings
       setFilteredBlog(foundBlog || null);
+
+      const next = blogs[foundBlog[0].id + 1];
+      setNextBlog(next || blogs[foundBlog[0].id + 2] || blogs[foundBlog[0].id - 2] || null);
     }
     window.scrollTo(0, 0);
   }, [blogs, id]);
 
+  ;
   return (
     <>
       <Navbar />
@@ -39,54 +44,68 @@ const Blog = () => {
       }
       {
         filteredBlog && filteredBlog.length > 0 &&
-        <div className="px-20 pt-7">
+        <div className="px-20 max-lg:px-10 max-sm:px-2 pt-7">
           <div className="rounded-2xl relative h-[510px] max-md:h-[200px]">
-            <img src={filteredBlog[0].thumbnail} alt="thumbnail" className="w-full h-full object-cover rounded-2xl" />
-            <div onClick={() => navigate(-1)} className="absolute top-10 left-10 bg-white rounded-full p-1 cursor-pointer shadow-md">
+            <img src={filteredBlog[0].thumbnail} alt="thumbnail" className="w-full h-full object-fill rounded-2xl" />
+            <div onClick={() => navigate(-1)} className="absolute top-[2%] left-[1%] bg-white rounded-full p-1 max-sm:p-[0.7px] cursor-pointer shadow-md">
               <img src={BackIcon} alt="back icon" />
             </div>
           </div>
           <div className="mt-7 flex gap-3 items-center">
             <div>
-              <img className="w-16 h-16 object-contain border rounded-full" src={filteredBlog[0].person} alt="" />
+              <img className="w-16 h-16 max-sm:w-10 max-sm:h-10 min-h-5 min-w-5 object-cover border rounded-full" src={filteredBlog[0].author.profile_image} alt="" />
             </div>
             <div className="flex flex-col gap-1">
-              <div className="text-xl font-medium text-[#101828]">{filteredBlog[0].updated_by || "Manjeet"}</div>
-              <div className="text-lg text-[#667085] font-normal">{filteredBlog[0].date_posted}</div>
+              <div className="text-xl max-sm:text-sm font-medium text-[#101828]">{filteredBlog[0].author.name || "Ottermap"}</div>
+              <div className="text-lg max-sm:text-xs text-[#667085] font-normal">{filteredBlog[0].date_posted}</div>
             </div>
           </div>
-          <div className="mt-8 prose-xl pb-24 border-b border-[#8C8C8C]" dangerouslySetInnerHTML={{ __html: filteredBlog[0].content }} />
+          <div className="mt-12">
+            <div className="text-4xl font-medium text-[#101828]">
+              {filteredBlog[0].topic}
+            </div>
+            <div className="mt-12 text-2xl font-normal text-[#667085]">
+              {filteredBlog[0].summary}
+            </div>
+          </div>
+          <div className="mt-24 prose-xl pb-24 px-5 border-b border-[#8C8C8C]" dangerouslySetInnerHTML={{ __html: filteredBlog[0].content }} />
+          <div className="flex items-start justify-end mt-8 gap-2">
+            <div className="text-base max-sm:text-xs font-bold text-nowrap">Read next:</div>
+            <div onClick={() => navigate(`/blog/${nextBlog.topic}/${nextBlog.id}`)} className="text-base max-sm:text-xs font-medium hover:underline cursor-pointer">
+              {nextBlog?.topic}
+            </div>
+          </div>
           <div className="mt-20">
-            <div className="text-[#101828] text-3xl font-medium">
+            <div className="text-[#101828] text-3xl max-sm:text-xl font-medium">
               More articles on the go
             </div>
-            <div className="flex flex-wrap mb-20">
+            <div className="flex flex-wrap max-lg:flex-col mb-20">
               {blogs
                 .filter(blog => blog.id.toString() !== id) // Exclude the current blog
                 .slice(0, 3)
                 .map(blog => (
-                  <div key={blog.id} onClick={() => navigate(`/blog/${blog.topic}/${blog.id}`)} className="flex justify-center gap-8 w-1/3 pt-28 pb-2 cursor-pointer">
-                    <div className='bg-[#f4f5fb] rounded-xl w-[90%] flex flex-col gap-8 pb-7 mt-2'>
+                  <div key={blog.id} onClick={() => navigate(`/blog/${blog.topic}/${blog.id}`)} className="flex justify-center gap-8 max-lg:w-full w-1/3 pt-28 max-sm:pt-10 pb-2 cursor-pointer">
+                    <div className='bg-[#f4f5fb] rounded-xl w-[90%] flex flex-col justify-between gap-8 pb-7 mt-2'>
 
                       <div className='flex justify-center mt-6 mx-6'>
-                        <img src={blog.thumbnail} alt="" loading='lazy' />
+                        <img className='w-full h-50 max-sm:h-32 object-fill rounded' src={blog.thumbnail} alt="" loading='lazy' />
                       </div>
                       <div className='flex flex-col gap-5'>
                         <div className='flex flex-col gap-3 pl-6 pr-9'>
-                          <div className='text-base font-medium'>
+                          <div className='text-base max-sm:text-sm font-medium'>
                             {blog.topic}
                           </div>
-                          <div className='text-base font-normal text-[#667085]'>
+                          <div className='text-base max-sm:text-xs font-normal text-[#667085] line-clamp-2'>
                             {blog.summary}
                           </div>
                         </div>
                         <div className='flex gap-3 pl-6 items-center'>
                           <div>
-                            <img className='w-8 h-8 rounded-full' src={blog.person} alt="" />
+                            <img className='w-8 h-8 rounded-full' src={blog.author.profile_image} alt="" />
                           </div>
                           <div>
-                            <div className='text-sm font-normal object-cover'>{blog.updated_by || "Manjeet"}</div>
-                            <div className='text-sm font-normal text-[#667085]'>{blog.date_posted}</div>
+                            <div className='text-sm max-sm:text-xs font-normal object-cover'>{blog.author.name || "Ottermap"}</div>
+                            <div className='text-sm max-sm:text-xs font-normal text-[#667085]'>{blog.date_posted}</div>
                           </div>
                         </div>
                       </div>
