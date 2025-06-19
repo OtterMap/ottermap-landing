@@ -62,10 +62,14 @@ const Blog = () => {
           </div>
           <div className="mt-12">
             <div className="text-4xl font-medium text-[#101828]">
-              {filteredBlog[0].topic}
+              <h1>
+                {filteredBlog[0].topic}
+              </h1>
             </div>
             <div className="mt-12 text-2xl font-normal text-[#667085]">
-              {filteredBlog[0].summary}
+              <p>
+                {filteredBlog[0].summary}
+              </p>
             </div>
           </div>
           <div className="mt-24 prose-xl pb-24 px-5 border-b border-[#8C8C8C]" dangerouslySetInnerHTML={{ __html: filteredBlog[0].content }} />
