@@ -4,12 +4,13 @@ import Landscaping from "./pages/industries/Landscaping";
 import Paving from "./pages/industries/Paving";
 import Snow from "./pages/industries/Snow";
 import Landing from "./pages/landing/Landing";
-import { Routes, Route, BrowserRouter } from "react-router-dom";
+import { Routes, Route, BrowserRouter, Navigate } from "react-router-dom";
 import WhyWe from "./pages/whywe/WhyWe";
 import { useEffect } from "react";
 import mixpanel from './utils/mixpanel/mixpanel.js';
 import Resources from "./pages/resources/Resources.jsx";
 import Blog from "./components/blog/Blog.jsx";
+import Blogs from "./pages/blogs/Blogs.jsx";
 function App() {
 
   useEffect(() => {
@@ -49,13 +50,13 @@ function App() {
           </div>
         }
         />
-        <Route path="/about-us" element={
+        <Route path="/about" element={
           <div className="font">
             <AboutUs />
           </div>
         }
         />
-        <Route path="/why-we" element={
+        <Route path="/whyus" element={
           <div className="font">
             <WhyWe />
           </div>
@@ -67,12 +68,19 @@ function App() {
           </div>
         }
         />
-        <Route path="/blog/:id" element={
+        <Route path="/blog/:slug/:id" element={
           <div className="font">
             <Blog />
           </div>
         }
         />
+        <Route path="/blogs" element={
+          <div className="font">
+            <Blogs />
+          </div>
+        }
+        />
+        <Route path="/*" element={<Navigate to="/" replace />} />
       </Routes>
     </BrowserRouter>
 

@@ -84,9 +84,9 @@ const Navbar = () => {
 
                     <div onClick={() => {
                         customTrack("Navbar Why We button Clicked", { buttonName: "Why We" })
-                        navigate("/why-we")
+                        navigate("/whyus")
                     }}
-                        className={`flex justify-center items-center gap-1 cursor-pointer h-fit border-b-2 hover:scale-105 ${pathname.includes("/why-we") ? "border-[#218448]" : "border-transparent"}`}>
+                        className={`flex justify-center items-center gap-1 cursor-pointer h-fit border-b-2 hover:scale-105 ${pathname.includes("/whyus") ? "border-[#218448]" : "border-transparent"}`}>
                         Why we
                     </div>
 
@@ -99,9 +99,9 @@ const Navbar = () => {
 
                     <div onClick={() => {
                         customTrack("Navbar About Us button Clicked", { buttonName: "About Us" })
-                        navigate("/about-us")
+                        navigate("/about")
                     }}
-                        className={`flex justify-center items-center gap-1 cursor-pointer h-fit border-b-2 hover:scale-105 ${pathname.includes("/about-us") ? "border-[#218448]" : "border-transparent"}`}>
+                        className={`flex justify-center items-center gap-1 cursor-pointer h-fit border-b-2 hover:scale-105 ${pathname.includes("/about") ? "border-[#218448]" : "border-transparent"}`}>
                         About Us
                     </div>
 
@@ -262,7 +262,7 @@ const Navbar = () => {
                             onClick={() => {
 
                                 customTrack("Navbar Why we button Clicked", { buttonName: "Why we", view: "Mobile" })
-                                navigate("/why-we")
+                                navigate("/whyus")
                             }}
                             className='flex justify-between items-center pb-3 border-b pt-7 border-[#E2E5EA]'>
                             <div className='text-base font-semibold'>Why we</div>
@@ -279,7 +279,7 @@ const Navbar = () => {
                             onClick={() => {
 
                                 customTrack("Navbar About us button Clicked", { buttonName: "About us", view: "Mobile" })
-                                navigate("/about-us")
+                                navigate("/about")
                             }}
                             className='flex justify-between items-center pb-3 border-b pt-7 border-[#E2E5EA]'>
                             <div className='text-base font-semibold'>About us</div>

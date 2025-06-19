@@ -1,52 +1,124 @@
 import { statecontext } from "../../utils/context/context";
 import BackIcon from '../../assets/blog/back.svg';
-import { useNavigate } from "react-router-dom";
-import { useEffect } from "react";
+import { useNavigate, useParams } from "react-router-dom";
+import { useEffect, useState } from "react";
 import axios from "axios";
 import Navbar from "../common/Navbar";
+import Footer from "../common/Footer";
 
 const Blog = () => {
-  const { blogs, setblogs } = statecontext();
+
+  const { blogs, setblogs, fetchBlogs } = statecontext();
   const navigate = useNavigate();
-
-  const blogData = '<h1><u><em><strong>Artificial Intelligence (AI)</strong></em></u></h1>\r\n\r\n<hr />\r\n<p>It is no longer a futuristic concept&mdash;it is now embedded in our smartphones, homes, and even vehicles.</p>\r\n\r\n<p><img alt=\"\" src=\"https://plus.unsplash.com/premium_photo-1715639312136-56a01f236440?q=80&amp;w=2057&amp;auto=format&amp;fit=crop&amp;ixlib=rb-4.1.0&amp;ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D\" style=\"border-style:solid; border-width:2px; float:left; height:271px; width:400px\" /></p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p style=\"text-align: center;\">&nbsp;</p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<h2 style=\"font-style:italic\"><tt>Voice assistants</tt></h2>\r\n\r\n<hr />\r\n<p>Like Siri and Alexa, personalized recommendations on Netflix or Amazon, and predictive text while typing are all examples of how AI subtly enhances our daily experiences.</p>\r\n\r\n<p><img alt=\"Siri\" src=\"https://images.unsplash.com/photo-1603184017968-953f59cd2e37?q=80&amp;w=2071&amp;auto=format&amp;fit=crop&amp;ixlib=rb-4.1.0&amp;ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D\" style=\"height:133px; width:200px\" /></p>\r\n\r\n<p><img alt=\"\" src=\"https://images.unsplash.com/photo-1522869635100-9f4c5e86aa37?q=80&amp;w=2070&amp;auto=format&amp;fit=crop&amp;ixlib=rb-4.1.0&amp;ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D\" style=\"height:333px; width:500px\" /></p>\r\n\r\n<hr />\r\n<h2><kbd><strong>Conclusion</strong></kbd></h2>\r\n\r\n<hr />\r\n<p>As AI continues to evolve, it will increasingly impact areas like healthcare, education, and transportation. While the benefits are vast, it&rsquo;s also important to consider the ethical implications and ensure responsible AI development.<br />\r\nThe future is not just about machines replacing humans, but about humans and machines working together to build smarter solutions for a better world.</p>\r\n\r\n<p><a href=\"https://images.unsplash.com/photo-1620712943543-bcc4688e7485?q=80&amp;w=1965&amp;auto=format&amp;fit=crop&amp;ixlib=rb-4.1.0&amp;ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D\"><img alt=\"AI robo\" src=\"https://images.unsplash.com/photo-1620712943543-bcc4688e7485?q=80&amp;w=1965&amp;auto=format&amp;fit=crop&amp;ixlib=rb-4.1.0&amp;ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D\" style=\"float:left; height:400px; width:320px\" /></a></p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<h3><strong>Thanks for reading! 🚀✨</strong></h3>'
-
-
-
-  const fetchBlogs = async () => {
-    try {
-      const res = await axios.get('https://dev.ottermap.com/v1/api/blogs/');
-      setblogs(res.data); // this will update context state
-      console.log("Fetched blogs:", res.data);
-    } catch (error) {
-      console.error("Failed to fetch blogs:", error);
-    }
-  };
-
+  const { slug, id } = useParams();
+  const [filteredBlog, setFilteredBlog] = useState([]);
+  const [nextBlog, setNextBlog] = useState(null);
 
   useEffect(() => {
-    fetchBlogs();
+    if (!blogs || blogs.length === 0) {
+      fetchBlogs();
+    }
+    window.scrollTo(0, 0);
   }, []);
 
+  useEffect(() => {
+    if (blogs && blogs.length > 0) {
+      const foundBlog = blogs.filter(blog => blog.id.toString() === id); // ensure both are strings
+      setFilteredBlog(foundBlog || null);
 
-  if (!blogs || blogs.length === 0) {
-    return <div className="flex justify-center items-center py-10">
-      <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-[#218448]"></div>
-    </div>
-  }
+      const next = blogs[foundBlog[0].id + 1];
+      setNextBlog(next || blogs[foundBlog[0].id + 2] || blogs[foundBlog[0].id - 2] || null);
+    }
+    window.scrollTo(0, 0);
+  }, [blogs, id]);
 
+  ;
   return (
     <>
       <Navbar />
-      <div className="px-20 pt-7">
-        <div className="rounded-2xl relative h-[510px]">
-          <img src={blogs[0].thumbnail} alt="thumbnail" className="w-full h-full object-cover rounded-2xl" />
-          <div onClick={() => navigate(-1)} className="absolute top-10 left-10 bg-white rounded-full p-1 cursor-pointer shadow-md">
-            <img src={BackIcon} alt="back icon" />
+      {
+        !filteredBlog || filteredBlog.length === 0 &&
+        <div className="flex justify-center items-center py-10">
+          <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-[#218448]"></div>
+        </div>
+      }
+      {
+        filteredBlog && filteredBlog.length > 0 &&
+        <div className="px-20 max-lg:px-10 max-sm:px-2 pt-7">
+          <div className="rounded-2xl relative h-[510px] max-md:h-[200px]">
+            <img src={filteredBlog[0].thumbnail} alt="thumbnail" className="w-full h-full object-fill rounded-2xl" />
+            <div onClick={() => navigate(-1)} className="absolute top-[2%] left-[1%] bg-white rounded-full p-1 max-sm:p-[0.7px] cursor-pointer shadow-md">
+              <img src={BackIcon} alt="back icon" />
+            </div>
+          </div>
+          <div className="mt-7 flex gap-3 items-center">
+            <div>
+              <img className="w-16 h-16 max-sm:w-10 max-sm:h-10 min-h-5 min-w-5 object-cover border rounded-full" src={filteredBlog[0].author.profile_image} alt="" />
+            </div>
+            <div className="flex flex-col gap-1">
+              <div className="text-xl max-sm:text-sm font-medium text-[#101828]">{filteredBlog[0].author.name || "Ottermap"}</div>
+              <div className="text-lg max-sm:text-xs text-[#667085] font-normal">{filteredBlog[0].date_posted}</div>
+            </div>
+          </div>
+          <div className="mt-12">
+            <div className="text-4xl font-medium text-[#101828]">
+              {filteredBlog[0].topic}
+            </div>
+            <div className="mt-12 text-2xl font-normal text-[#667085]">
+              {filteredBlog[0].summary}
+            </div>
+          </div>
+          <div className="mt-24 prose-xl pb-24 px-5 border-b border-[#8C8C8C]" dangerouslySetInnerHTML={{ __html: filteredBlog[0].content }} />
+          <div className="flex items-start justify-end mt-8 gap-2">
+            <div className="text-base max-sm:text-xs font-bold text-nowrap">Read next:</div>
+            <div onClick={() => navigate(`/blog/${nextBlog.topic}/${nextBlog.id}`)} className="text-base max-sm:text-xs font-medium hover:underline cursor-pointer">
+              {nextBlog?.topic}
+            </div>
+          </div>
+          <div className="mt-20">
+            <div className="text-[#101828] text-3xl max-sm:text-xl font-medium">
+              More articles on the go
+            </div>
+            <div className="flex flex-wrap max-lg:flex-col mb-20">
+              {blogs
+                .filter(blog => blog.id.toString() !== id) // Exclude the current blog
+                .slice(0, 3)
+                .map(blog => (
+                  <div key={blog.id} onClick={() => navigate(`/blog/${blog.topic}/${blog.id}`)} className="flex justify-center gap-8 max-lg:w-full w-1/3 pt-28 max-sm:pt-10 pb-2 cursor-pointer">
+                    <div className='bg-[#f4f5fb] rounded-xl w-[90%] flex flex-col justify-between gap-8 pb-7 mt-2'>
+
+                      <div className='flex justify-center mt-6 mx-6'>
+                        <img className='w-full h-50 max-sm:h-32 object-fill rounded' src={blog.thumbnail} alt="" loading='lazy' />
+                      </div>
+                      <div className='flex flex-col gap-5'>
+                        <div className='flex flex-col gap-3 pl-6 pr-9'>
+                          <div className='text-base max-sm:text-sm font-medium'>
+                            {blog.topic}
+                          </div>
+                          <div className='text-base max-sm:text-xs font-normal text-[#667085] line-clamp-2'>
+                            {blog.summary}
+                          </div>
+                        </div>
+                        <div className='flex gap-3 pl-6 items-center'>
+                          <div>
+                            <img className='w-8 h-8 rounded-full' src={blog.author.profile_image} alt="" />
+                          </div>
+                          <div>
+                            <div className='text-sm max-sm:text-xs font-normal object-cover'>{blog.author.name || "Ottermap"}</div>
+                            <div className='text-sm max-sm:text-xs font-normal text-[#667085]'>{blog.date_posted}</div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                ))
+              }
+            </div>
           </div>
         </div>
-        <div className="mt-8" dangerouslySetInnerHTML={{ __html: blogData }} />
-      </div>
+      }
+      <Footer />
     </>
   );
 };
