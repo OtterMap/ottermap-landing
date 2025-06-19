@@ -8,8 +8,6 @@ export const StateContext = ({ children }) => {
     const fetchBlogs = async () => {
         const res = await axios.get('https://dev.ottermap.com/v1/api/blogs/');
         setblogs(res.data);
-        console.log(blogs);
-        console.log(res.data);
     }
     return <statecontexts.Provider value={{ blogs, setblogs, fetchBlogs }}>
         {children}

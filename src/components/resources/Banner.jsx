@@ -18,7 +18,6 @@ const Banner = () => {
                         </div>
                         <div className='flex bg-[#508D69] justify-center items-center gap-1.5 py-1.5 px-5 rounded-full text-white'>
                             <div onClick={() => {
-                                // console.log(email);
                                 setEmail('');
                                 customTrack("Resources Stay in Loop clicked", { email: email })
                             }} className='text-sm cursor-pointer'>Submit</div>
