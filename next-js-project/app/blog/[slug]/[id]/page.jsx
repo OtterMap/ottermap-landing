@@ -10,6 +10,7 @@ import { useParams, useRouter, useSearchParams } from 'next/navigation';
 import Navbar from '@/app/components/common/Navbar';
 import Footer from '@/app/components/common/Footer';
 import Image from 'next/image';
+import { customTrack } from '@/app/utils/mixpanel/customTrack';
 
 const page = () => {
 
@@ -82,7 +83,11 @@ const page = () => {
                     <div className="px-5  no-tailwind" dangerouslySetInnerHTML={{ __html: filteredBlog[0].content }} />
                     <div className="flex items-start justify-end pt-8 gap-2 border-t border-[#8C8C8C]">
                         <div className="text-base max-sm:text-xs font-bold text-nowrap">Read next:</div>
-                        <div onClick={() => router.push(`/blog/${nextBlog.topic}/${nextBlog.id}`)} className="text-base max-sm:text-xs font-medium hover:underline cursor-pointer">
+                        <div onClick={() => {
+                            customTrack("Next blog link clicked", { blogTopic: nextBlog.topic, blogId: nextBlog.id });
+                            router.push(`/blog/${nextBlog.topic}/${nextBlog.id}`)
+                        }}
+                            className="text-base max-sm:text-xs font-medium hover:underline cursor-pointer">
                             {nextBlog?.topic}
                         </div>
                     </div>
@@ -95,7 +100,11 @@ const page = () => {
                                 .filter(blog => blog.id.toString() !== id) // Exclude the current blog
                                 .slice(0, 3)
                                 .map(blog => (
-                                    <div key={blog.id} onClick={() => router.push(`/blog/${blog.topic}/${blog.id}`)} className="flex justify-center gap-8 max-lg:w-full w-1/3 pt-28 max-sm:pt-10 pb-2 cursor-pointer">
+                                    <div key={blog.id} onClick={() => {
+                                        customTrack("Blog clicked on opened blog page", { blogTopic: blog.topic, blogId: blog.id, currentBlogOpened: filteredBlog[0].topic, currentBlogOpenedId: filteredBlog[0].id });
+                                        router.push(`/blog/${blog.topic}/${blog.id}`)
+                                    }}
+                                        className="flex justify-center gap-8 max-lg:w-full w-1/3 pt-28 max-sm:pt-10 pb-2 cursor-pointer">
                                         <div className='bg-[#f4f5fb] rounded-xl w-[90%] flex flex-col justify-between gap-8 pb-7 mt-2'>
 
                                             <div className='flex justify-center mt-6 mx-6'>

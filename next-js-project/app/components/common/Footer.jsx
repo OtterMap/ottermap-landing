@@ -124,12 +124,14 @@ const Footer = () => {
                                                 onClick={() => {
                                                     if (link.link.startsWith("/#")) {
                                                         const targetId = link.link.split("#")[1];
+                                                        customTrack("Footer Link Click", { linkName: link.name })
                                                         router.push("/");
                                                         setTimeout(() => {
                                                             const element = document.getElementById(targetId);
                                                             element?.scrollIntoView({ behavior: "smooth" });
                                                         }, 100); // slight delay to allow route load
                                                     } else {
+                                                        customTrack("Footer Link Click", { linkName: link.name })
                                                         router.push(link.link);
                                                     }
                                                 }}

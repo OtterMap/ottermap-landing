@@ -58,6 +58,7 @@ const Navbar = () => {
                 <div className='w-fit'>
 
                     <Image onClick={() => {
+                        customTrack("Navbar Logo Clicked", { buttonName: "Navbar Logo" })
                         router.push("/");
                     }} className='w-32 min-w-24 cursor-pointer' src={Logo} alt="logo" />
                 </div>
@@ -65,7 +66,7 @@ const Navbar = () => {
 
                     <div onClick={
                         () => {
-
+                            customTrack("Navbar Industry button Clicked", { buttonName: "Industries" })
                             setopenIndustries(!openIndustries);
                         }
                     }
@@ -75,6 +76,7 @@ const Navbar = () => {
                     </div>
 
                     <div onClick={() => {
+                        customTrack("Navbar Resources button Clicked", { buttonName: "Resources" })
                         router.push("/resources")
                     }}
                         className={`flex justify-center items-center gap-1 cursor-pointer h-fit border-b-2 hover:scale-105 ${pathname.includes("/resources") ? "border-[#218448]" : "border-transparent"}`}>
@@ -82,6 +84,7 @@ const Navbar = () => {
                     </div>
 
                     <div onClick={() => {
+                        customTrack("Navbar Why We button Clicked", { buttonName: "Why We" })
                         router.push("/whyus")
                     }}
                         className={`flex justify-center items-center gap-1 cursor-pointer h-fit border-b-2 hover:scale-105 ${pathname.includes("/whyus") ? "border-[#218448]" : "border-transparent"}`}>
@@ -91,6 +94,7 @@ const Navbar = () => {
 
 
                     <div onClick={() => {
+                        customTrack("Navbar About Us button Clicked", { buttonName: "About Us" })
                         router.push("/about")
                     }}
                         className={`flex justify-center items-center gap-1 cursor-pointer h-fit border-b-2 hover:scale-105 ${pathname.includes("/about") ? "border-[#218448]" : "border-transparent"}`}>
@@ -103,6 +107,7 @@ const Navbar = () => {
                             <div className='flex flex-col px-5 py-5 bg-[#fafafa] shadow-xl rounded-xl gap-8'>
                                 <div className='flex justify-evenly gap-0'>
                                     <div onClick={() => {
+                                        customTrack("Navbar - Industries dropdown button Click", { buttonName: "Landscaping" })
                                         router.push("/industries/landscaping")
                                     }} className='flex flex-col items-start gap-3 cursor-pointer w-[50%]'>
                                         <div className=''><Image className='w-6' src={industries1} alt="" /></div>
@@ -112,6 +117,7 @@ const Navbar = () => {
                                         </div>
                                     </div>
                                     <div onClick={() => {
+                                        customTrack("Navbar - Industries dropdown button Click", { buttonName: "Snow" })
                                         router.push("/industries/snow")
                                     }} className='flex flex-col items-start gap-3 cursor-pointer w-[50%]'>
                                         <div className=''><Image className='w-6' src={industries2} alt="" /></div>
@@ -123,6 +129,7 @@ const Navbar = () => {
                                 </div>
                                 <div className='flex justify-evenly items-start gap-5'>
                                     <div onClick={() => {
+                                        customTrack("Navbar - Industries dropdown button Click", { buttonName: "Paving" })
                                         router.push("/industries/paving")
                                     }} className='flex flex-col items-start gap-3 cursor-pointer w-[50%]'>
                                         <div className=''><Image className='w-6' src={industries3} alt="" /></div>
@@ -132,6 +139,7 @@ const Navbar = () => {
                                         </div>
                                     </div>
                                     <div onClick={() => {
+                                        customTrack("Navbar - Industries dropdown button Click", { buttonName: "Facilities services" })
                                         router.push("/industries/facilities-services")
                                     }} className='flex flex-col items-start gap-3 cursor-pointer w-[50%]'>
                                         <div className=''><Image className='w-6' src={industries4} alt="" /></div>
