@@ -35,8 +35,7 @@ const page = () => {
                         return <div key={blog.id} onClick={() => {
                             customTrack("Blog Cliked on all blog page", { blogTopic: blog.topic, blogId: blog.id });
                             router.push(`/blog/${blog.topic}/${blog.id}`)
-                        }
-                        }
+                        }}
                             className="flex justify-center gap-8 w-1/3 max-lg:w-full pt-10 pb-2 cursor-pointer">
                             <div className='bg-[#f4f5fb] rounded-xl w-[90%] flex flex-col justify-between gap-8 pb-7 mt-2'>
 

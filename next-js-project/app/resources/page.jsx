@@ -10,9 +10,12 @@ import Playbook from "../components/resources/Playbook";
 import Banner from "../components/resources/Banner";
 import ContactSupport from "../components/resources/ContactSupport";
 import FAQs from "../components/resources/FAQs";
+import { statecontext } from "../utils/context/context";
 
 const page = () => {
+  const { blogs, setblogs, fetchBlogs } = statecontext();
   useEffect(() => {
+    // fetchBlogs();
     window.scrollTo(0, 0);
   })
   return (
@@ -21,7 +24,7 @@ const page = () => {
       <Hero />
       {/* <How /> */}
       {/* <Learn /> */}
-      {/* <Blogs /> */}
+      <Blogs />
       {/* <Playbook /> */}
       <Banner />
       <ContactSupport />

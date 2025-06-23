@@ -34,8 +34,13 @@ const page = () => {
             const foundBlog = blogs.filter(blog => blog.id.toString() === id); // ensure both are strings
             setFilteredBlog(foundBlog || null);
 
-            const next = blogs[foundBlog[0].id + 1];
-            setNextBlog(next || blogs[foundBlog[0].id + 2] || blogs[foundBlog[0].id - 2] || null);
+            if (foundBlog?.[0]) {
+                const otherBlogs = blogs.filter(blog => blog.id !== foundBlog[0].id);
+                const randomBlog = otherBlogs[Math.floor(Math.random() * otherBlogs.length)] || null;
+                setNextBlog(randomBlog);
+            } else {
+                setNextBlog(null);
+            }
         }
         window.scrollTo(0, 0);
     }, [blogs, id]);
