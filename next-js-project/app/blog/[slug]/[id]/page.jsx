@@ -11,6 +11,7 @@ import Navbar from '@/app/components/common/Navbar';
 import Footer from '@/app/components/common/Footer';
 import Image from 'next/image';
 import { customTrack } from '@/app/utils/mixpanel/customTrack';
+import Logo from '@/app/icons/icon.svg';
 
 const page = () => {
 
@@ -58,34 +59,38 @@ const page = () => {
             {
                 filteredBlog && filteredBlog.length > 0 &&
                 <div className="px-20 max-lg:px-10 max-sm:px-2 pt-7">
+                    <div onClick={() => router.back(-1)} className="w-fit mb-5 bg-[#ededed] rounded-full p-0.5 max-sm:p-[0.7px] cursor-pointer shadow-md">
+                        <Image src={BackIcon} alt="back icon" />
+                    </div>
                     <div className="rounded-2xl relative h-[510px] max-md:h-[200px]">
                         <img src={filteredBlog[0].thumbnail} alt="thumbnail" className="w-full h-full object-fill rounded-2xl" />
-                        <div onClick={() => router.back(-1)} className="absolute top-[2%] left-[1%] bg-white rounded-full p-1 max-sm:p-[0.7px] cursor-pointer shadow-md">
-                            <Image src={BackIcon} alt="back icon" />
-                        </div>
                     </div>
                     <div className="mt-7 flex gap-3 items-center">
                         <div>
-                            <img className="w-16 h-16 max-sm:w-10 max-sm:h-10 min-h-5 min-w-5 object-cover border rounded-full" src={filteredBlog[0].author.profile_image} alt="" />
+                            <img className="w-16 h-16 max-sm:w-10 max-sm:h-10 min-h-5 min-w-5 object-cover border rounded-full" src={
+                                filteredBlog[0].author?.profile_image
+                                    ? filteredBlog[0].author.profile_image
+                                    : '/icon.svg' // fallback image
+                            } alt="" />
                         </div>
                         <div className="flex flex-col gap-1">
                             <div className="text-xl max-sm:text-sm font-medium text-[#101828]">{filteredBlog[0].author.name || "Ottermap"}</div>
                             <div className="text-lg max-sm:text-xs text-[#667085] font-normal">{filteredBlog[0].date_posted}</div>
                         </div>
                     </div>
-                    <div className="mt-12 pb-20">
-                        <div className="text-4xl font-medium text-[#101828]">
+                    <div className="mt-12 pb-20 px-2">
+                        <div className="text-3xl max-sm:text-lg font-semibold text-[#218448]">
                             <h1>
                                 {filteredBlog[0].topic}
                             </h1>
                         </div>
-                        <div className="mt-12 text-2xl font-normal text-[#667085]">
+                        <div className="mt-12 text-xl max-sm:text-sm font-normal text-[#667085] border-l-4 border-[#218448] pl-5">
                             <p>
                                 {filteredBlog[0].summary}
                             </p>
                         </div>
                     </div>
-                    <div className="px-5  no-tailwind" dangerouslySetInnerHTML={{ __html: filteredBlog[0].content }} />
+                    <div className=" max-w-none prose" dangerouslySetInnerHTML={{ __html: filteredBlog[0].content }} />
                     <div className="flex items-start justify-end pt-8 gap-2 border-t border-[#8C8C8C]">
                         <div className="text-base max-sm:text-xs font-bold text-nowrap">Read next:</div>
                         <div onClick={() => {
