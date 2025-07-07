@@ -1,24 +1,18 @@
 'use client'
 
 import BackIcon from '.././../../icons/blog/back.svg';
-// import { useNavigate, useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
-// import axios from "axios";
-
 import { statecontext } from '@/app/utils/context/context';
 import { useParams, useRouter, useSearchParams } from 'next/navigation';
 import Navbar from '@/app/components/common/Navbar';
 import Footer from '@/app/components/common/Footer';
 import Image from 'next/image';
 import { customTrack } from '@/app/utils/mixpanel/customTrack';
-import Logo from '@/app/icons/icon.svg';
 
 const page = () => {
 
     const { blogs, setblogs, fetchBlogs } = statecontext();
-    //   const navigate = useNavigate();
     const router = useRouter();
-    //   const { slug, id } = useParams();
     const { slug, id } = useParams();
     const [filteredBlog, setFilteredBlog] = useState([]);
     const [nextBlog, setNextBlog] = useState(null);

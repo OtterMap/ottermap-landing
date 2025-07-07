@@ -5,6 +5,7 @@ import Footer from "../components/common/Footer";
 import { useRouter } from "next/navigation";
 import { statecontext } from "../utils/context/context";
 import { customTrack } from "../utils/mixpanel/customTrack";
+import slugify from "slugify";
 
 const page = () => {
     const { blogs, setblogs, fetchBlogs } = statecontext();
@@ -34,7 +35,8 @@ const page = () => {
                     blogs.map((blog) => {
                         return <div key={blog.id} onClick={() => {
                             customTrack("Blog Cliked on all blog page", { blogTopic: blog.topic, blogId: blog.id });
-                            router.push(`/blog/${blog.topic}/${blog.id}`)
+                            const slug = slugify(blog.topic, { lower: true, strict: true });
+                            router.push(`/blog/${slug}/${blog.id}`)
                         }}
                             className="flex justify-center gap-8 w-1/3 max-lg:w-full pt-10 pb-2 cursor-pointer">
                             <div className='bg-[#f4f5fb] rounded-xl w-[90%] flex flex-col justify-between gap-8 pb-7 mt-2'>
