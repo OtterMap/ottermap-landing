@@ -5,6 +5,7 @@ import { statecontext } from '@/app/utils/context/context';
 import { useEffect } from 'react';
 import { customTrack } from '@/app/utils/mixpanel/customTrack';
 import { useRouter } from 'next/navigation';
+import slugify from 'slugify';
 const Blogs = () => {
     const router = useRouter();
     const { blogs, setblogs, fetchBlogs } = statecontext();
@@ -22,7 +23,8 @@ const Blogs = () => {
                 {blogs.slice(0, 3).map((blog) => (
                     <div key={blog.id} onClick={() => {
                         customTrack("Blog Cliked on Resources page", { blogTopic: blog.topic, blogId: blog.id });
-                        router.push(`/blog/${blog.topic}/${blog.id}`)
+                        const slug = slugify(blog.topic, { lower: true, strict: true });
+                        router.push(`/blog/${slug}/${blog.id}`)
                     }} className="flex justify-center gap-8 w-1/3 max-lg:w-full pb-2 cursor-pointer">
                         <div className='bg-[#f4f5fb] rounded-xl w-[90%] flex flex-col justify-between gap-8 pb-7 mt-2'>
 
