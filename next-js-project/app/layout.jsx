@@ -14,6 +14,9 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en" className={dmSans.className}>
+      <head>
+        <meta name="google-site-verification" content="ZgIC_qplkLbmcswEo5ce2kbF9nGvNGvmkyRZYaQ_Ex8" />
+      </head>
       <body
         className={`antialiased`}
       >
