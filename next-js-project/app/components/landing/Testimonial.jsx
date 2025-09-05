@@ -2,6 +2,7 @@ import React from 'react';
 import CircularImage from '../../icons/landing/testimonial/circularImage.svg';
 import CircularImage1 from '../../icons/landing/testimonial/circularImage1.svg';
 import CircularImage2 from '../../icons/landing/testimonial/circularImage2.svg';
+import CircularImage3 from '../../icons/landing/testimonial/circularImage3.svg';
 import Image from 'next/image';
 
 const Testimonial = () => {
@@ -19,10 +20,10 @@ const Testimonial = () => {
       content: 'Ottermap has been great for our company! Their accuracy and speed for site maps are like none other. Any suggestions for how to make our experience better have been taken into consideration and implemented thoroughly.',
     },
     {
-      logo: CircularImage,
-      name: 'Bill Jacobson',
-      position: 'VP-Business Development',
-      content: 'Ottermap\'s exceptional communication kept us on track. They\'re focused on our needs, respecting our time and business. Invaluable support, ensuring smooth operations.',
+      logo: CircularImage3,
+      name: 'Crystal Partin',
+      position: 'Director-Business Development',
+      content: 'The system is so detail with the information needed and provided. The team listens to and tries to address any concerns and questions you have. Great team and great program!',
     },
     {
       logo: CircularImage,
