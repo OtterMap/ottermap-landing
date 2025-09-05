@@ -2,7 +2,7 @@ import React from 'react';
 import CircularImage from '../../icons/landing/testimonial/circularImage.svg';
 import CircularImage1 from '../../icons/landing/testimonial/circularImage1.svg';
 import CircularImage2 from '../../icons/landing/testimonial/circularImage2.svg';
-import CircularImage3 from '../../icons/landing/testimonial/circularImage3.svg';
+// import CircularImage3 from '../../icons/landing/testimonial/circularImage3.svg';
 import Image from 'next/image';
 
 const Testimonial = () => {
