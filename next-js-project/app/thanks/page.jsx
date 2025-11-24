@@ -9,16 +9,16 @@ const page = () => {
         window.scrollTo(0, 0);
     })
     return (
-        <div className="flex flex-col gap-10 pt-20 items-center h-screen ">
+        <div className="flex flex-col gap-10 pt-20 items-center h-screen bg-gradient-to-b from-[#04471E] to-[#DCD7BB]">
             <Image src={ThanksIcon} alt='thanks image' className="w-80 min-w-80" />
-            <div className="text-3xl max-sm:text-base text-[#000000] font-bold text-center">
+            <div className="text-3xl max-sm:text-base text-[#ffffff] font-bold text-center">
                 Thank you! Your interest has been recorded.
             </div>
             <div className="flex flex-col items-center justify-center text-center px-5">
-                <div className="text-[22px] max-sm:text-sm text-[#000000] font-normal text-center">
+                <div className="text-[22px] max-sm:text-sm text-[#ffffff] font-normal text-center">
                     We’ll activate your beta access soon and email you with next steps.
                 </div>
-                <div className="text-[22px] max-sm:text-sm text-[#000000] font-normal text-center">
+                <div className="text-[22px] max-sm:text-sm text-[#ffffff] font-normal text-center">
                     We appreciate your time and look forward to having you explore the new Ottermap experience.
                 </div>
             </div>
