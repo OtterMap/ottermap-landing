@@ -19,7 +19,7 @@ const page = () => {
     return (
         <div>
             <Navbar />
-            <div className='text-3xl text-center font-bold mt-20 mb-20'>
+            <div className='text-3xl text-center font-bold mt-10 mb-0'>
                 Blogs
             </div>
             {

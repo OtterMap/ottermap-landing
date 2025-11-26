@@ -2,11 +2,13 @@
 import { useEffect } from "react"
 import ThanksIcon from '../icons/thanks/thanks.svg';
 import Image from "next/image";
+import { customTrack } from "../utils/mixpanel/customTrack";
 
 const page = () => {
 
     useEffect(() => {
         window.scrollTo(0, 0);
+        customTrack("Thanks page entered", { page: 'thanks page' });
     })
     return (
         <div className="flex flex-col gap-10 pt-20 items-center h-screen bg-gradient-to-b from-[#04471E] to-[#DCD7BB]">
