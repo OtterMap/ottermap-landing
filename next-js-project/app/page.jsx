@@ -1,6 +1,6 @@
 'use client'
 import Navbar from "./components/common/Navbar";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import Hero from "./components/landing/Hero";
 import ProblemAndSolution from "./components/landing/ProblemAndSolution";
 import WalkThrough from "./components/landing/WalkThrough";
@@ -11,24 +11,86 @@ import UseCases from "./components/landing/UseCases";
 import Banner from "./components/landing/Banner";
 import FAQs from "./components/landing/FAQs";
 import Footer from "./components/common/Footer";
+import ScrollAnimation from "./utils/animations/ScrollAnimation";
+import ScrollUpArrow from './icons/scrollUpArrow.svg';
+import Image from "next/image";
+import { motion } from 'framer-motion'
 
 export default function Home() {
+  const [position, setPosition] = useState("top")
+
   useEffect(() => {
-    window.scrollTo(0, 0);
-  })
+    setPosition("top")
+    window.scrollTo(0, 0)
+  }, [])
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 300) {
+        setPosition("bottom")
+      } else {
+        setPosition("top")
+      }
+    }
+    window.addEventListener("scroll", handleScroll)
+    return () => window.removeEventListener("scroll", handleScroll)
+  }, [])
+
   return (
     <div>
+      <motion.div
+        className={`fixed ${position === "top" ? "top-0 right-1/2 transform -translate-x-1/2" : "bottom-6 right-6"} bg-white border p-4 rounded-full shadow-lg cursor-pointer z-50`}
+        onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+        whileHover={{ scale: 1.2 }}
+        whileTap={{ scale: 0.9 }}
+        initial={{ scale: 0 }}
+        animate={{ scale: 1 }}
+        transition={{ type: "spring", stiffness: 300, damping: 20 }}
+      >
+        <Image src={ScrollUpArrow} alt="scroll to top" />
+      </motion.div>
+
       <Navbar />
-      <Hero />
-      <ProblemAndSolution />
-      <WalkThrough />
-      <Features />
-      <Values />
-      <Testimonial />
-      <UseCases />
-      <Banner />
-      <FAQs />
-      <Footer />
+
+      <ScrollAnimation>
+        <Hero />
+      </ScrollAnimation>
+
+      <ScrollAnimation>
+        <ProblemAndSolution />
+      </ScrollAnimation>
+
+      <ScrollAnimation>
+        <WalkThrough />
+      </ScrollAnimation>
+
+      <ScrollAnimation>
+        <Features />
+      </ScrollAnimation>
+
+      <ScrollAnimation>
+        <Values />
+      </ScrollAnimation>
+
+      <ScrollAnimation>
+        <Testimonial />
+      </ScrollAnimation>
+
+      <ScrollAnimation>
+        <UseCases />
+      </ScrollAnimation>
+
+      <ScrollAnimation>
+        <Banner />
+      </ScrollAnimation>
+
+      <ScrollAnimation>
+        <FAQs />
+      </ScrollAnimation>
+
+      <ScrollAnimation>
+        <Footer />
+      </ScrollAnimation>
     </div>
   );
 }
