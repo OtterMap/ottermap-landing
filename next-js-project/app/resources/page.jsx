@@ -40,7 +40,7 @@ const page = () => {
   return (
     <div>
       <motion.div
-        className={`fixed ${position === "top" ? "top-0 right-1/2 transform -translate-x-1/2" : "bottom-6 right-6"} bg-white border p-4 rounded-full shadow-lg cursor-pointer z-50`}
+        className={`fixed ${position === "top" ? "top-0 right-1/2 transform -translate-x-1/2" : "bottom-6 right-1/2"} bg-white border p-2 rounded-full shadow-lg cursor-pointer z-50`}
         onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
         whileHover={{ scale: 1.2 }}
         whileTap={{ scale: 0.9 }}
@@ -48,7 +48,7 @@ const page = () => {
         animate={{ scale: 1 }}
         transition={{ type: "spring", stiffness: 300, damping: 20 }}
       >
-        <Image src={ScrollUpArrow} alt="scroll to top" />
+        <Image src={ScrollUpArrow} alt="scroll to top" className="w-6" />
       </motion.div>
 
       <Navbar />
