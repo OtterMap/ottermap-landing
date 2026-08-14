@@ -13,6 +13,10 @@ const Footer = () => {
             title: "Product",
             links: [
                 {
+                    name: "Blueprint Takeoffs",
+                    link: "/blueprint"
+                },
+                {
                     name: "Features",
                     link: "/#features"
                 },

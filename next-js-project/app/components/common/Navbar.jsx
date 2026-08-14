@@ -62,7 +62,7 @@ const Navbar = () => {
                         router.push("/");
                     }} className='w-32 min-w-24 cursor-pointer' src={Logo} alt="logo" />
                 </div>
-                <div ref={industriesRef} className='relative md:flex items-center w-fit h-12 xl:ml-12 lg:text-sm md:text-xs hidden text-xs rounded-full border-2 border-[#218448] gap-7 px-5 text-[#218448] font-medium'>
+                <div ref={industriesRef} className='relative md:flex items-center w-fit h-12 xl:ml-12 lg:text-sm md:text-xs hidden text-xs rounded-full border-2 border-[#218448] gap-5 xl:gap-7 px-5 text-[#218448] font-medium'>
 
                     <div onClick={
                         () => {
@@ -73,6 +73,14 @@ const Navbar = () => {
                         className={`flex justify-center items-center gap-1 cursor-pointer h-fit border-b-2 hover:scale-105 ${pathname.startsWith("/industries") ? "border-[#218448]" : "border-transparent"}`}>
                         Industries
                         <Image src={openIndustries ? UpArrow : DownArrow} alt="" />
+                    </div>
+
+                    <div onClick={() => {
+                        customTrack("Navbar Blueprint button Clicked", { buttonName: "Blueprints" })
+                        router.push("/blueprint")
+                    }}
+                        className={`flex justify-center items-center gap-1 cursor-pointer h-fit border-b-2 hover:scale-105 ${pathname.includes("/blueprint") ? "border-[#218448]" : "border-transparent"}`}>
+                        Blueprints
                     </div>
 
                     <div onClick={() => {
@@ -245,6 +253,14 @@ const Navbar = () => {
                                 </div>
                             </div>
                         }
+                        <div
+                            onClick={() => {
+                                customTrack("Navbar Blueprint button Clicked", { buttonName: "Blueprints", view: "Mobile" });
+                                router.push("/blueprint")
+                            }}
+                            className='flex justify-between items-center pb-3 border-b pt-7 border-[#E2E5EA]'>
+                            <div className='text-base font-semibold'>Blueprints</div>
+                        </div>
                         <div
                             onClick={() => {
 
